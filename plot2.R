@@ -12,7 +12,7 @@ dates <- strptime(paste(dat$Date, dat$Time), format="%d/%m/%Y %H:%M:%S")
 dat$Date <- dates
 par(mfrow = c(1,1))
 png("Plot2.png", width=480, height=480)
-plot(x = dat$Date, y = dat$Global_active_power,ylab = "Global Active Power(kilowatts)", type = 'l', xlab = "")
+plot(x = dat$Date[!is.na(dat$Date)], y = dat$Global_active_power[!is.na(dat$Global_active_power)],ylab = "Global Active Power(kilowatts)", type = 'l', xlab = "")
 x <- 1:3
 lables <- c("Thu", "Fri", "Sat")
 text(x = x, labels = lables)
